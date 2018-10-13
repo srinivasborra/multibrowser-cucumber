@@ -1,10 +1,12 @@
 package com.test.qa.Runner;
 
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
+import org.junit.runner.RunWith;
 
-//@RunWith(Cucumber.class)
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
 @CucumberOptions(
 			features= "QA/com/test/qa/feature"
 			,glue = {"helpers","com.test.qa.stepdefinition"}
@@ -13,12 +15,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 					"html:target/cucumber-reports"}
 			,dryRun=false
 			,monochrome = true
-			,tags="@RestTest"
+			//,tags="@RestTest"
 			)
-//public class CucumberRunner{
-//	
-//}
-public class CucumberRunner extends AbstractTestNGCucumberTests {
-
+public class CucumberRunner{
 	
 }
+//public class CucumberRunner extends AbstractTestNGCucumberTests {
+//
+//	
+//}

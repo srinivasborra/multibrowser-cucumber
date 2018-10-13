@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Google Pages Suite" parallel="tests">
+<suite name="Mutiple xml suites">
+    <suite-files>
+        <suite-file path="chromesuite.xml" />
+        <suite-file path="firefoxsuite.xml" />
+    </suite-files>
+</suite>
+
+<!-- <suite name="Google Pages Suite">
 	<test thread-count="5" name="ChromeTest">
 		<parameter name="browser" value="chrome" />
 		<packages>
 			<package name="com.test.qa.seltest"></package>
 		</packages>
 	</test>
-	<test thread-count="5" name="FireFoxTest">
+	  <test thread-count="5" name="FireFoxTest">
 		<parameter name="browser" value="firefox" />
 		<packages>
-			<package name="com.test.qa.seltest"></package>
+			<package name="com.test.firefox"></package>
 		</packages>
 	</test>  
 	 <test thread-count="5" name="CucumberTest" enabled="true">
@@ -19,5 +26,5 @@
 			<class name="com.test.qa.Runner.CucumberRunner"/>
 		</classes>
 	</test> 
-	 <!-- Test -->
-</suite> <!-- Suite -->
+	 Test
+</suite> --> <!-- Suite -->

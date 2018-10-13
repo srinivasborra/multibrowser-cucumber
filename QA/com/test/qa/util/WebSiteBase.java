@@ -42,7 +42,6 @@ public class WebSiteBase {
 	}
 
 	public WebDriver initiateBrowser(String browser) throws Exception {
-		AppBaseInfo abi = new AppBaseInfo();
 		if (browser != null && browser.length() > 0) {
 			
 			String brw = browser.toLowerCase();
@@ -79,7 +78,6 @@ public class WebSiteBase {
 				break;
 			}
 		}
-		abi.setDriver(webdriver);
 		return webdriver;
 	}
 

@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.test.qa.util.PageObject;
 import com.test.qa.util.WebSiteBase;
@@ -42,11 +44,14 @@ public class HomePage extends PageObject {
 	}
 	
 	public void clickMore(){
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.MILLISECONDS);
-		Actions action = new Actions(driver);
-		action.moveToElement(driver.findElement(By.xpath("//a[contains(@jsname,'LgbsSe')]"))).build().perform();
-		driver.findElement(By.xpath("//a[contains(@jsname,'LgbsSe')]")).click();
-		driver.findElement(By.xpath("//a[contains(@href,'tbm=shop')]")).click();
+		WebDriverWait wait= new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//a[contains(@jsname,'LgbsSe')]")));
+//		driver.manage().timeouts().implicitlyWait(30,TimeUnit.MILLISECONDS);
+//		//WebDriverWait driverWait = new WebDriverWait(driver,30);
+//		Actions action = new Actions(driver);
+//		action.moveToElement(driver.findElement(By.xpath("//a[contains(@jsname,'LgbsSe')]"))).build().perform();
+//		driver.findElement(By.xpath("//a[contains(@jsname,'LgbsSe')]")).click();
+//		driver.findElement(By.xpath("//a[contains(@href,'tbm=shop')]")).click();
 	}
 	
 	public void closeBrowser(){
@@ -58,7 +63,7 @@ public class HomePage extends PageObject {
 	public static void main(String ag[]) throws Exception{
 		HomePage pg = new HomePage("chrome");
 		pg.homePage();
-		//pg.clickMore();
-		//pg.closeBrowser();
+		pg.clickMore();
+		pg.closeBrowser();
 	}
 }
